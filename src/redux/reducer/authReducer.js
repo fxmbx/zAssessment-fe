@@ -27,7 +27,7 @@ const getAuthState = () => {
         const { data } = authobj.user
         const decode = jwt_decode(data.token)
         console.log("😃", decode)
-        localStorage.setItem("loggedInUserId", data.id)
+        localStorage.setItem("loggedInUserId", decode.id)
         if (new Date(decode.exp) < new Date()) {
             axios.defaults.headers.common['Authorization'] = `Bearer ${data.token}`
             return authobj;
@@ -52,9 +52,9 @@ const authReducer = (state = newAuth, action) => {
             }
             axios.defaults.headers.common[
                 "Authorization"
-            ] = `Bearer ${action.payload.data.jwtToken}`;
+            ] = `Bearer ${action.payload.data.token}`;
             localStorage.setItem('auth', JSON.stringify(loginAuthState))
-            localStorage.setItem('loggedInUserId', loginAuthState.user.data.id)
+            localStorage.setItem('loggedInUserId', jwt_decode(loginAuthState.user.data.token).id)
             return loginAuthState
 
         case authActionType.LOGIN_FAIL:
@@ -72,9 +72,9 @@ const authReducer = (state = newAuth, action) => {
             }
             axios.defaults.headers.common[
                 "Authorization"
-            ] = `Bearer ${action.payload.data.jwtToken}`;
+            ] = `Bearer ${action.payload.data.token}`;
             localStorage.setItem('auth', JSON.stringify(newAuthState))
-            localStorage.setItem('loggedInUserId', newAuthState.user.data.id)
+            localStorage.setItem('loggedInUserId', jwt_decode(newAuthState.user.data.token).id)
 
             return newAuthState
         case authActionType.REGISTER_FAIL:

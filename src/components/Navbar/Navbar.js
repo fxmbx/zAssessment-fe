@@ -8,7 +8,8 @@ import { LogOutAction } from '../../redux/actions/authAction'
 
 
 function Navbar(props) {
-    const { auth } = props
+    const { auth, logout } = props
+    console.log("this is  auth", auth)
     const navigate = useNavigate()
     const [click, setClick] = useState(false);
     const [button, setButton] = useState(true);
@@ -36,7 +37,7 @@ function Navbar(props) {
             <nav className='navbar'>
                 <div className='navbar-container'>
                     <Link to='/' className='navbar-logo' onClick={closeMobileMenu}>
-                        THELOGO<i className="fab fa-angellist" />
+                        zSolutons Assessment<i className="fab fa-angellist" />
                     </Link>
                     <div className='menu-icon' onClick={handleClick}>
                         <i className={click ? 'fas fa-times' : 'fas fa-bars'} />
@@ -56,27 +57,44 @@ function Navbar(props) {
                                 Services
                             </Link>
                         </li>
-                        <li className='nav-item'>
-                            <Link
-                                to='/login'
-                                className='nav-links'
-                                onClick={closeMobileMenu}
-                            >
-                                Login
-                            </Link>
-                        </li>
-
-                        <li>
-                            <Link
-                                to='/register'
-                                className='nav-links-mobile'
-                                onClick={closeMobileMenu}
-                            >
-                                Register
-                            </Link>
-                        </li>
+                        {auth.isLogged &&
+                            <li className='nav-item' onClick={() => {
+                                logout(navigate)
+                            }}>
+                                <Link
+                                    to='/'
+                                    className='nav-links'
+                                    onClick={closeMobileMenu}
+                                >
+                                    Logout
+                                </Link>
+                            </li>
+                        }
+                        {!auth.isLogged &&
+                            <>
+                                <li className='nav-item'>
+                                    <Link
+                                        to='/login'
+                                        className='nav-links'
+                                        onClick={closeMobileMenu}
+                                    >
+                                        Login
+                                    </Link>
+                                </li>
+                                <li>
+                                    <Link
+                                        to='/register'
+                                        className='nav-links-mobile'
+                                        onClick={closeMobileMenu}
+                                    >
+                                        Register
+                                    </Link>
+                                </li>
+                            </>
+                        }
                     </ul>
-                    {button && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+                    {/* {! && } */}
+                    {button && !auth.isLogged && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
 
                 </div>
             </nav>
