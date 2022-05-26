@@ -11,6 +11,8 @@ function Cards() {
             'Authorization': `Bearer ${localStorage.getItem('auth')}`
         }
     }
+    let resState = JSON.parse(sessionStorage.getItem('vehicleList'))
+
     useEffect(() => {
         const getVehicles = async () => {
 
@@ -21,8 +23,7 @@ function Cards() {
 
         }
         getVehicles()
-    }, [])
-    let resState = JSON.parse(sessionStorage.getItem('vehicleList'))
+    })
     console.log("this is resState", resState)
     return (
         <div className='cards'>
@@ -40,6 +41,9 @@ function Cards() {
                                     text={data?.vehicleDescription}
                                     title={data?.vehicleName}
                                     label={data?.vehiclePrice} path='/services'
+                                    onPress={() => {
+                                        sessionStorage.setItem('vehicleDetails', JSON.stringify(data))
+                                    }}
                                 />
                             )
                         })}

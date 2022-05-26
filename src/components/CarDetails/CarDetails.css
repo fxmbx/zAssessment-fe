@@ -1,0 +1,91 @@
+.cardetails-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  padding-top: 10vh;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #eef2f4;
+}
+.car-image {
+  position: relative;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  /* display: block; */
+  width: 100%;
+  height: 60%;
+}
+
+.car-image-wrapper {
+  box-shadow: 0 2px 8.8px 3.2px rgba(4, 4, 4, 0.04);
+  position: relative;
+  width: 65%;
+  /* padding-top: 67%; */
+  overflow: hidden;
+  /* height: 100%; */
+  /* background-color: #ccc; */
+  display: flex;
+  flex-direction: column;
+  overflow-y: scroll;
+}
+
+.seller-info {
+  margin-left: 1rem;
+  margin-right: 1rem;
+  max-width: 40%;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+}
+.car-price {
+  padding: 1rem;
+  background-color: #fff;
+  box-shadow: 0 2px 8.8px 3.2px rgba(4, 4, 4, 0.04);
+  font-size: 2em;
+  font-weight: 700;
+}
+.brand-details {
+  margin-top: 30px;
+  display: flex;
+  background-color: #fff;
+  box-shadow: 0 2px 8.8px 3.2px rgba(4, 4, 4, 0.04);
+  padding: 1rem;
+  font-size: 2rem;
+}
+.brand-Avatar {
+  border-radius: 50%;
+  padding: 20px;
+  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+  color: #fff;
+  font-family: "Gill ans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+.brand-name {
+  align-self: center;
+  padding-left: 10px;
+}
+.safety-tips {
+  display: flex;
+  flex-direction: column;
+  margin-top: 30px;
+  background-color: #fff;
+  box-shadow: 0 2px 8.8px 3.2px rgba(4, 4, 4, 0.04);
+  line-height: 2rem;
+  padding: 30px;
+}
+.saftety-tip-header {
+  align-self: center;
+}
+.more-details {
+  margin-top: 2rem;
+  width: 100%;
+  border: 1px solid black;
+  /* background-color: black; */
+  height: 100%;
+  color: rebeccapurple;
+}
+.car-info {
+  font-size: 2rem;
+}

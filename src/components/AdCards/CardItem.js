@@ -4,8 +4,8 @@ import './Cards.css'
 function CardItem(props) {
     return (
         <>
-            <li className='cards__item' key={props.key}>
-                <Link className='cards__item__link' to={props.path}>
+            <li className='cards__item' key={props.key} >
+                <Link className='cards__item__link' onClick={props.onPress} to='/details'>
                     <figure className='cards__item__pic-wrap' data-category={props.label}>
                         <img src={`http://localhost:7000/uploads/${props.src}`} className='cards__item__img' />
                     </figure>
