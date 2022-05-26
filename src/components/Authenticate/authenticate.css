@@ -1,0 +1,42 @@
+.authenticate-wrapper {
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
+  height: auto;
+}
+.authenticate-header {
+  font-size: 2.5rem;
+}
+.authenticate-container {
+  margin-top: 2rem;
+  margin-bottom: 2.5rem;
+  background-color: #fff;
+  width: 60%;
+  height: 70%;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  border-radius: 3px;
+}
+.authenticate-header {
+  text-align: center;
+}
+.authenticate-input {
+  margin-top: 1rem;
+  display: block;
+  width: 100%;
+  padding: 0.75rem;
+  background-color: rgb(243 244 246);
+  border-radius: 3px;
+}
+
+.submit-div {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: row-reverse;
+  width: 100%;
+}
+.authenticate-submit {
+  align-content: flex-end;
+  padding: 0.75rem;
+}
