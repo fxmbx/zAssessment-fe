@@ -50,7 +50,7 @@ function Navbar(props) {
                         </li>
                         <li className='nav-item'>
                             <Link
-                                to='/services'
+                                to='/postad'
                                 className='nav-links'
                                 onClick={closeMobileMenu}
                             >

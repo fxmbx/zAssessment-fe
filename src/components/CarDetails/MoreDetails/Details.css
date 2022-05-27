@@ -1,0 +1,22 @@
+.table {
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 1rem;
+}
+.table-div {
+  margin-top: 5;
+}
+
+.table td,
+.table th {
+  padding: 0.75rem;
+  vertical-align: top;
+  border-top: 1px solid #dee2e6;
+}
+
+.details-body {
+  background-color: #fff;
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 8.8px 3.2px rgba(4, 4, 4, 0.04);
+}
