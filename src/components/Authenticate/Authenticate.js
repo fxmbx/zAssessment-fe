@@ -5,6 +5,7 @@ import './authenticate.css'
 import { LoginAction, RegisterAction } from '../../redux/actions/authAction'
 import { connect } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { TextField } from '@mui/material'
 function Authenticate(props) {
     console.log(props)
     const { headerText, login, register } = props
@@ -37,14 +38,15 @@ function Authenticate(props) {
                     }}
                 >
                     <h4 className='authenticate-header'>{headerText}</h4>
-                    <span style={{ color: 'red', position: 'relative', flexDirection: 'row-reverse' }}>*</span>
+
                     {headerText === "REGISTER" ?
-                        <input
-                            aria-label='username input field'
-                            type="text"
-                            className="authenticate-input"
-                            placeholder="username"
+
+                        <TextField
+                            style={{ width: '100%', marginBottom: 15 }}
+                            id="outlined-flexible"
+                            label="username"
                             required
+                            value={userAuthState?.username}
                             onChange={(e) => {
 
                                 const username = e.target.value
@@ -52,15 +54,18 @@ function Authenticate(props) {
 
                             }}
                         />
-                        : null}
-                    <span style={{ color: 'red' }}>*</span>
 
-                    <input
-                        aria-label='Email input field'
-                        type="email"
+                        : null}
+
+
+                    <TextField
+                        style={{ width: '100%', marginBottom: 15 }}
+
+                        id="outlined-flexible"
+                        label="email"
+                        type={'email'}
                         required
-                        className="authenticate-input"
-                        placeholder="email"
+                        value={userAuthState?.email}
                         onChange={(e) => {
 
                             const email = e.target.value
@@ -68,12 +73,14 @@ function Authenticate(props) {
 
                         }}
                     />
-                    <span style={{ color: 'red' }}>*</span>
-                    <input
-                        type="password"
+                    <TextField
+                        style={{ width: '100%', marginBottom: 15 }}
+
+                        id="outlined-flexible"
+                        label="passowrd"
+                        type={'passoword'}
                         required
-                        className="authenticate-input"
-                        placeholder="password"
+                        value={userAuthState?.password}
                         onChange={(e) => {
 
                             const password = e.target.value
@@ -81,14 +88,19 @@ function Authenticate(props) {
 
                         }}
                     />
+
+
+
                     {headerText === 'REGISTER' ?
                         <>
-                            <span style={{ color: 'red' }}>*</span>
-                            <input
-                                type="text"
+                            <TextField
+                                style={{ width: '100%', marginBottom: 15 }}
+
+                                id="outlined-flexible"
+                                label="mobile number"
+                                type={'text'}
                                 required
-                                className="authenticate-input"
-                                placeholder="mobile number"
+                                value={userAuthState?.phone}
                                 onChange={(e) => {
 
                                     const phone = e.target.value
@@ -96,6 +108,8 @@ function Authenticate(props) {
 
                                 }}
                             />
+
+
                             <select name='Position'
                                 className="authenticate-input"
 
@@ -116,12 +130,15 @@ function Authenticate(props) {
 
                             {userRole === 'seller' ?
                                 <>
-                                    <span style={{ color: 'red' }}>*</span>
-                                    <input
-                                        type="text"
-                                        className="authenticate-input"
-                                        placeholder="LastName"
+
+                                    <TextField
+                                        style={{ width: '100%', marginBottom: 15 }}
+
+                                        id="outlined-flexible"
+                                        label="lastname"
+                                        type={'text'}
                                         required
+                                        value={userAuthState?.lastname}
                                         onChange={(e) => {
 
                                             const lastname = e.target.value
@@ -129,12 +146,14 @@ function Authenticate(props) {
 
                                         }}
                                     />
-                                    <span style={{ color: 'red' }}>*</span>
-                                    <input
-                                        type="text"
-                                        className="authenticate-input"
-                                        placeholder="FirstName"
+                                    <TextField
+                                        style={{ width: '100%', marginBottom: 15 }}
+
+                                        id="outlined-flexible"
+                                        label="firstname"
+                                        type={'text'}
                                         required
+                                        value={userAuthState?.firstname}
                                         onChange={(e) => {
 
                                             const firstname = e.target.value
@@ -142,13 +161,14 @@ function Authenticate(props) {
 
                                         }}
                                     />
-                                    <span style={{ color: 'red' }}>*</span>
-                                    <input
-                                        type="text"
-                                        required
+                                    <TextField
+                                        style={{ width: '100%', marginBottom: 15 }}
 
-                                        className="authenticate-input"
-                                        placeholder="MiddleName"
+                                        id="outlined-flexible"
+                                        label="lastname"
+                                        type={'text'}
+                                        required
+                                        value={userAuthState?.middlename}
                                         onChange={(e) => {
 
                                             const middlename = e.target.value
@@ -156,13 +176,14 @@ function Authenticate(props) {
 
                                         }}
                                     />
-                                    <span style={{ color: 'red' }}>*</span>
-                                    <input
-                                        type="text"
-                                        required
+                                    <TextField
+                                        style={{ width: '100%', marginBottom: 15 }}
 
-                                        className="authenticate-input"
-                                        placeholder="Brandname"
+                                        id="outlined-flexible"
+                                        label="lastname"
+                                        type={'text'}
+                                        required
+                                        value={userAuthState?.brandname}
                                         onChange={(e) => {
 
                                             const brandname = e.target.value
@@ -170,12 +191,13 @@ function Authenticate(props) {
 
                                         }}
                                     />
-                                    <span style={{ color: 'red' }}>*</span>
-                                    <input
-                                        type="text"
+                                    <TextField
+                                        style={{ width: '100%', marginBottom: 15 }}
+
+                                        id="outlined-flexible"
+                                        label="phoneNumber1"
                                         required
-                                        className="authenticate-input"
-                                        placeholder="Phone number 1"
+                                        value={userAuthState?.phoneNumber1}
                                         onChange={(e) => {
 
                                             const phoneNumber1 = e.target.value
@@ -184,11 +206,12 @@ function Authenticate(props) {
 
                                         }}
                                     />
-                                    <span style={{ color: 'red' }}>*</span>
-                                    <input
-                                        type="text"
-                                        className="authenticate-input"
-                                        placeholder="Phone number 2"
+                                    <TextField
+                                        style={{ width: '100%', marginBottom: 15 }}
+
+                                        id="outlined-flexible"
+                                        label="phoneNumber 2"
+                                        value={userAuthState?.phoneNumber1}
                                         onChange={(e) => {
 
                                             const phoneNumber2 = e.target.value
@@ -196,12 +219,16 @@ function Authenticate(props) {
 
                                         }}
                                     />
-                                    <span style={{ color: 'red' }}>*</span>
-                                    <input
-                                        type="text"
+
+                                    <TextField
+                                        style={{ width: '100%', marginBottom: 15 }}
+
+                                        id="outlined-multiline-flexible"
+                                        label="address"
                                         required
-                                        className="authenticate-input"
-                                        placeholder="address"
+                                        multiline
+                                        maxRows={4}
+                                        value={userAuthState?.address}
                                         onChange={(e) => {
 
                                             const address = e.target.value
@@ -210,13 +237,20 @@ function Authenticate(props) {
 
                                         }}
                                     />
+
+
+
+
+
+
                                 </>
                                 : null
 
                             }
                         </>
 
-                        : null}
+                        : null
+                    }
                     <div className='submit-div'>
 
                         <input type='submit' className='authenticate-submit' />

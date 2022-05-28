@@ -3,7 +3,7 @@ import Authenticate from '../components/Authenticate/Authenticate';
 
 function Login() {
     return (
-        <div style={{ width: '100%', height: '100%' }}>
+        <div style={{ height: '100vh' }}>
             <Authenticate headerText="LOGIN" />
 
         </div>

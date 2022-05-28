@@ -4,12 +4,11 @@ import './Details.css'
 function Details() {
     let resState = JSON.parse(sessionStorage.getItem('vehicleDetails'))
 
-    console.log('rtrans resState', resState)
-    console.log('rtrans resState', resState?.data?.block?.hash)
+
 
     return (
         <div className='details-body'>
-            <div className='table-div mt-5'>
+            <div className='table-div'>
                 <div className='details-table'>
                     <table className='table'>
                         <thead>
@@ -33,7 +32,7 @@ function Details() {
                                 <td>{resState?.seller?.brandname}</td>
                             </tr>
                             <tr>
-                                <td>Sellers Phone  Time</td>
+                                <td>Sellers Phone Number</td>
                                 <td>{resState?.seller?.phoneNumber1}</td>
                             </tr>
                             <tr className='input-table-row'>

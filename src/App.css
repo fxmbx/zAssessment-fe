@@ -5,6 +5,9 @@
   font-family: "PT Sans", sans-serif;
   scroll-behavior: smooth;
 }
+body {
+  background-color: #eef2f4;
+}
 
 .home,
 .services,

@@ -11,7 +11,7 @@ function Cards() {
             'Authorization': `Bearer ${localStorage.getItem('auth')}`
         }
     }
-    let resState = JSON.parse(sessionStorage.getItem('vehicleList'))
+    let resState = ""
 
     useEffect(() => {
         const getVehicles = async () => {
@@ -20,10 +20,11 @@ function Cards() {
             const { data } = res
             console.log("🚙", data)
             sessionStorage.setItem('vehicleList', JSON.stringify(data))
-
         }
         getVehicles()
-    })
+    }, [resState])
+    resState = JSON.parse(sessionStorage.getItem('vehicleList'))
+
     console.log("this is resState", resState)
     return (
         <div className='cards'>
@@ -40,7 +41,7 @@ function Cards() {
                                     }
                                     text={data?.vehicleDescription}
                                     title={data?.vehicleName}
-                                    label={data?.vehiclePrice} path='/services'
+                                    label={data?.vehiclePrice} path='/details'
                                     onPress={() => {
                                         sessionStorage.setItem('vehicleDetails', JSON.stringify(data))
                                     }}
@@ -52,7 +53,7 @@ function Cards() {
                     </ul>
                     <ul className='cards__items'>
 
-                        {resState?.data?.slice(3)?.map((data, index) => {
+                        {resState?.data?.slice(3, 6)?.map((data, index) => {
                             // console.log(index)
                             return (
                                 < CardItem
@@ -61,7 +62,10 @@ function Cards() {
                                     }
                                     text={data?.vehicleDescription}
                                     title={data?.vehicleName}
-                                    label={data?.vehiclePrice} path='/services'
+                                    label={data?.vehiclePrice} path='/details'
+                                    onPress={() => {
+                                        sessionStorage.setItem('vehicleDetails', JSON.stringify(data))
+                                    }}
                                 />
                             )
                         })}
