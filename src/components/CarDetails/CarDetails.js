@@ -11,7 +11,7 @@ function CarDetails() {
             <div className='cardetails-container'>
 
                 <div className='car-image-wrapper' >
-                    <img src={`http://localhost:7000/uploads/${resState.photo}`} className='car-image' />
+                    <img src={`http://localhost:7000/uploads/${resState?.photo}`} className='car-image' />
                     <Details />
                 </div >
 

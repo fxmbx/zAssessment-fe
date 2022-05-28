@@ -41,7 +41,7 @@ function Cards() {
                                     }
                                     text={data?.vehicleDescription}
                                     title={data?.vehicleName}
-                                    label={data?.vehiclePrice} path='/services'
+                                    label={data?.vehiclePrice} path='/details'
                                     onPress={() => {
                                         sessionStorage.setItem('vehicleDetails', JSON.stringify(data))
                                     }}
@@ -53,7 +53,7 @@ function Cards() {
                     </ul>
                     <ul className='cards__items'>
 
-                        {resState?.data?.slice(3)?.map((data, index) => {
+                        {resState?.data?.slice(3, 6)?.map((data, index) => {
                             // console.log(index)
                             return (
                                 < CardItem
@@ -62,7 +62,10 @@ function Cards() {
                                     }
                                     text={data?.vehicleDescription}
                                     title={data?.vehicleName}
-                                    label={data?.vehiclePrice} path='/services'
+                                    label={data?.vehiclePrice} path='/details'
+                                    onPress={() => {
+                                        sessionStorage.setItem('vehicleDetails', JSON.stringify(data))
+                                    }}
                                 />
                             )
                         })}

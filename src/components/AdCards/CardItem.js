@@ -3,9 +3,9 @@ import { Link } from 'react-router-dom'
 import './Cards.css'
 function CardItem(props) {
     return (
-        <>
-            <li className='cards__item' key={props.key} >
-                <Link className='cards__item__link' onClick={props.onPress} to='/details'>
+        <React.Fragment key={props.key}>
+            <li className='cards__item' >
+                <Link className='cards__item__link' onClick={props.onPress} to={props?.path}>
                     <figure className='cards__item__pic-wrap' data-category={props.label}>
                         <img src={`http://localhost:7000/uploads/${props.src}`} className='cards__item__img' />
                     </figure>
@@ -16,7 +16,7 @@ function CardItem(props) {
                     </div>
                 </Link>
             </li>
-        </>
+        </React.Fragment>
     )
 }
 

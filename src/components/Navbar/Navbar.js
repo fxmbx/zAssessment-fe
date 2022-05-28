@@ -6,6 +6,8 @@ import { useNavigate } from 'react-router-dom'
 import './Navbar.css';
 import { LogOutAction } from '../../redux/actions/authAction'
 
+import jwt_decode from 'jwt-decode'
+
 
 function Navbar(props) {
     const { auth, logout } = props
@@ -49,16 +51,18 @@ function Navbar(props) {
                                 Home
                             </Link>
                         </li>
-                        <li className='nav-item'>
-                            <Link
-                                to='/postad'
-                                className='nav-links'
-                                onClick={closeMobileMenu}
-                            >
-                                Services
-                            </Link>
-                        </li>
-                        {auth.isLogged &&
+                        {auth?.isLogged &&
+                            <li className='nav-item'>
+                                <Link
+                                    to='/postad'
+                                    className='nav-links'
+                                    onClick={closeMobileMenu}
+                                >
+                                    Post Ad
+                                </Link>
+                            </li>
+                        }
+                        {auth?.isLogged && jwt_decode(auth?.user?.data?.token)?.role === "seller" &&
                             <li className='nav-item' onClick={() => {
                                 logout(navigate)
                             }}>
@@ -71,7 +75,7 @@ function Navbar(props) {
                                 </Link>
                             </li>
                         }
-                        {!auth.isLogged &&
+                        {!auth?.isLogged &&
                             <>
                                 <li className='nav-item'>
                                     <Link
@@ -95,7 +99,7 @@ function Navbar(props) {
                         }
                     </ul>
                     {/* {! && } */}
-                    {button && !auth.isLogged && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
+                    {button && !auth?.isLogged && <Button buttonStyle='btn--outline'>SIGN UP</Button>}
 
                 </div>
             </nav>

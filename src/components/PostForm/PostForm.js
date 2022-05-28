@@ -129,6 +129,7 @@ function PostForm(props) {
                                     id="outlined-multiline-flexible"
                                     style={{ width: '100%' }}
                                     label="Vehicle Price"
+                                    type={'number'}
                                     multiline
                                     required
                                     maxRows={4}
@@ -144,6 +145,7 @@ function PostForm(props) {
                                     style={{ width: '100%' }}
                                     id="outlined-multiline-flexible"
                                     label="phoneNumber"
+
                                     multiline
                                     required
                                     maxRows={4}
