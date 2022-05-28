@@ -165,7 +165,7 @@ function Authenticate(props) {
                                         style={{ width: '100%', marginBottom: 15 }}
 
                                         id="outlined-flexible"
-                                        label="lastname"
+                                        label="middlename"
                                         type={'text'}
                                         required
                                         value={userAuthState?.middlename}
@@ -180,7 +180,7 @@ function Authenticate(props) {
                                         style={{ width: '100%', marginBottom: 15 }}
 
                                         id="outlined-flexible"
-                                        label="lastname"
+                                        label="brandname"
                                         type={'text'}
                                         required
                                         value={userAuthState?.brandname}
@@ -211,7 +211,7 @@ function Authenticate(props) {
 
                                         id="outlined-flexible"
                                         label="phoneNumber 2"
-                                        value={userAuthState?.phoneNumber1}
+                                        value={userAuthState?.phoneNumber2}
                                         onChange={(e) => {
 
                                             const phoneNumber2 = e.target.value

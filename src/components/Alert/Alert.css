@@ -1,0 +1,41 @@
+.boxit {
+  background-color: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.alertBox {
+  height: 50vh;
+  box-shadow: rgb(209, 209, 209) 5px 8px 34px;
+  border-radius: 1rem;
+}
+.alertBtn {
+  border: solid rgb(3, 184, 154) 2px;
+  padding: 15px 25px;
+  color: rgb(3, 184, 154);
+  text-decoration: dashed;
+  border-radius: 8px;
+}
+.row {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.bottom {
+  margin-top: 2rem;
+}
+.text {
+  font-size: 40px;
+  text-align: center;
+  font-weight: 400;
+}
+.img {
+  height: 100px;
+  width: 100px;
+}
+.middle {
+  text-align: center;
+}

@@ -6,6 +6,7 @@ import { connect } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
 
 import axios from 'axios'
+import { setAlert } from '../../redux/actions/alertAction'
 
 function PostForm(props) {
     const navigate = useNavigate()
@@ -14,7 +15,7 @@ function PostForm(props) {
             'Authorization': `Bearer ${localStorage.getItem('auth')}`
         }
     }
-    const { auth } = props
+    const { auth, errorAlert } = props
     const [show, setShow] = React.useState(false)
     const [file, setFile] = React.useState()
     const [value, setValue] = React.useState({
@@ -32,6 +33,8 @@ function PostForm(props) {
         console.log("this is add Vehciles response", data.data)
         if (data?.data?._id) {
             setShow(true)
+            alert("Ad deatls Posted")
+
             sessionStorage.setItem("postedvehicleId", data?.data?._id)
             vehicleId = data?.data?._id
 
@@ -43,18 +46,29 @@ function PostForm(props) {
         console.log(file)
 
         // const file = e.target.value
+        try {
+            const res = await axios.put(`vehicle/${sessionStorage.getItem('postedvehicleId')}/photo`, file, config.headers)
+            console.log(res?.data)
+            alert("Ad Posted with image")
 
-        const res = await axios.put(`vehicle/${sessionStorage.getItem('postedvehicleId')}/photo`, file, config.headers)
-        console.log(res?.data)
-        if (res?.data?.data) {
-            setShow(false)
-            setValue({
-                vehicleName: " ",
-                vehicleDescription: "",
-                vehiclePrice: 0,
-                phoneNumber: ""
-            })
+            if (res?.data?.data) {
+                setShow(false)
+                setValue({
+                    vehicleName: " ",
+                    vehicleDescription: "",
+                    vehiclePrice: 0,
+                    phoneNumber: ""
+                })
+            } else {
+                console.log(res?.data?.error)
+                errorAlert(res?.data?.error || 'Something went wront', 'error')
+            }
+        } catch (error) {
+            console.log(error.response?.data?.error)
+            alert(error?.response?.data?.error)
+
         }
+
 
     }
 
@@ -209,6 +223,10 @@ const mapDispatchToProps = (dispatch) => {
         logout: (navigate) => {
 
         },
+        errorAlert: (messgae, type) => {
+            dispatch(setAlert(messgae, type))
+
+        }
 
 
     }

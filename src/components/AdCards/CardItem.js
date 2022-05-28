@@ -7,7 +7,7 @@ function CardItem(props) {
             <li className='cards__item' >
                 <Link className='cards__item__link' onClick={props.onPress} to={props?.path}>
                     <figure className='cards__item__pic-wrap' data-category={props.label}>
-                        <img src={`http://localhost:7000/uploads/${props.src}`} className='cards__item__img' />
+                        <img src={`https://desolate-badlands-96338.herokuapp.com/${props.src}`} className='cards__item__img' />
                     </figure>
 
                     <div className='cards__item__info'>
