@@ -8,7 +8,8 @@ import store from './redux/store'
 import { Provider } from 'react-redux'
 
 
-axios.defaults.baseURL = "http://localhost:7000/api/v1/"
+axios.defaults.baseURL1 = "http://localhost:7000/api/v1/"
+axios.defaults.baseURL = "https://desolate-badlands-96338.herokuapp.com/api/v1/"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
