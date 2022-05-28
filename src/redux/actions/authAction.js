@@ -29,10 +29,10 @@ const RegisterAction = (userState, navigate) => {
 const LoginAction = (loginState, navigate) => {
     return async (dispatch) => {
         try {
-            console.log("📂", loginState)
+            // console.log("📂", loginState)
             const res = await axios.post('auth/login', loginState)
             const { data } = res
-            console.log("😀", res)
+            // console.log("😀", res)
             if (res.data.data === null || res.data.data === "") {
                 dispatch({ type: authActionType.LOGIN_FAIL, payload: data })
                 dispatch(setAlert(data.message || 'Invalid Credentials', 'info'))
@@ -71,6 +71,7 @@ const LogOutAction = (navigate) => {
 
     }
 }
+
 
 
 export {

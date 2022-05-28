@@ -9,6 +9,7 @@ import { LogOutAction } from '../../redux/actions/authAction'
 
 function Navbar(props) {
     const { auth, logout } = props
+
     console.log("this is  auth", auth)
     const navigate = useNavigate()
     const [click, setClick] = useState(false);
